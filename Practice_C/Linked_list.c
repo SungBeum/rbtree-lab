@@ -13,7 +13,7 @@ typedef struct ListNode {
 }   ListNode;   //구조체 별칭
 // 앞부분에 노드 삽입
 ListNode* insert_first(ListNode* head, int value)
-{   // malloc (동적 메모리 할당함수) _ ListNode* p 라는 포인터가 (ListNode*) 라는 자료형으로(_그냥 malloc 은 void*자료형) ListNode의 크기만큼 메모리 할당
+{   // malloc (동적 메모리 할당함수) _ ListNode* p 라는 포인터가 (ListNode*) 라는 자료형으로(_그냥 malloc 은 void*자료형) ListNode의 크기만큼 메모리 할당    
     ListNode* p = (ListNode*)malloc(sizeof(ListNode));  //(1)
     // 구조체 포인터를 사용할 때에 편의상 ListNode *p + (*p).data 대신 p->data 를 쓴다
     p -> data = value;  //(2)
