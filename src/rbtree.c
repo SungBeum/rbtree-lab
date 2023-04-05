@@ -20,11 +20,12 @@ void delete_rbtree_postorder(rbtree *t ,node_t *p)
   delete_rbtree_postorder(t, p->left);
   delete_rbtree_postorder(t, p->right);
   free(p);
+  p = NULL;
 } 
 // rbtree 삭제 함수
 void delete_rbtree(rbtree *t) {
   free(t->nil);
-  t->nil = NULL;
+  
   delete_rbtree_postorder(t, t->root);
   // TODO: reclaim the tree nodes's memory
   free(t);
