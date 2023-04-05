@@ -25,7 +25,6 @@ void delete_rbtree_postorder(rbtree *t ,node_t *p)
 // rbtree 삭제 함수
 void delete_rbtree(rbtree *t) {
   free(t->nil);
-  
   delete_rbtree_postorder(t, t->root);
   // TODO: reclaim the tree nodes's memory
   free(t);
