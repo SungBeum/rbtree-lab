@@ -12,21 +12,23 @@ rbtree *new_rbtree(void) {
   return p;
 }
 // 후위순회하면서 free
-void delete_rbtree_preorder(rbtree *t ,node_t *p)
+void delete_rbtree_postorder(rbtree *t ,node_t *p)
 { if (p == t->nil)
   { 
     return; 
   }
-  delete_rbtree_preorder(t, p->left);
-  delete_rbtree_preorder(t, p->right);
+  delete_rbtree_postorder(t, p->left);
+  delete_rbtree_postorder(t, p->right);
   free(p);
-}
+} 
 // rbtree 삭제 함수
 void delete_rbtree(rbtree *t) {
   free(t->nil);
-  delete_rbtree_preorder(t, t->root);
+  t->nil = NULL;
+  delete_rbtree_postorder(t, t->root);
   // TODO: reclaim the tree nodes's memory
   free(t);
+  t = NULL;
 }
 // tmp_node 기준 오른쪽으로 회전
 void rotate_right(rbtree *t, node_t *tmp_node)
